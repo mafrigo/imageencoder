@@ -16,4 +16,4 @@ def show_image(image):
 
 
 def save_image(image, filename):
-    plt.imsave(filename, image, vmin=0, vmax=1)#, pil_kwargs={'compress_level': 0})
+    plt.imsave(filename, image, vmin=0, vmax=1)
