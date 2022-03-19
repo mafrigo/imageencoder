@@ -19,12 +19,11 @@ class Spaxel:
     def encode(self, characters_to_be_encoded):
         from src.encoding import get_encoding
         self.encoded_characters = characters_to_be_encoded
-        average_color = np.mean(self.original_colors, axis=0)#.astype(int)
+        average_color = np.mean(self.original_colors, axis=0)
         if self.image_type == 'RGB':
             average_color = np.clip(average_color, 3, 252)
             color_step = 1.
         if self.image_type == 'RGBA':
-            #average_color = list(np.clip(average_color[:3], 0.015, 0.985)) + [average_color[3]]
             average_color = list(np.clip(average_color[:3], 0.03, 0.97)) + [average_color[3]]
             color_step = 0.01
         self.encoded_colors = np.array([average_color] * 4)

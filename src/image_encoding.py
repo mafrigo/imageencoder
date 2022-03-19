@@ -9,7 +9,7 @@ def encode_image(image, text, chars_per_pixel=3, image_type='RGB'):
         print('Warning: the provided text is too long to fit in this image! It will get cropped at %i text length' % (
             max_text_length))
     elif len(text) < max_text_length:
-        print('Repeating text %.2f times to fill image space' %(float(max_text_length)/float(len(text))))
+        print('Repeating text %.2f times to fill image space' % (float(max_text_length) / float(len(text))))
         text *= (max_text_length // len(text) + 1)
     else:
         print("Wow, perfect text length for this image! :)")
