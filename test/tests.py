@@ -1,7 +1,7 @@
 import unittest
-from ..src.image_handling import *
-from ..src.image_encoding import *
-from ..src.encoding import *
+from src.image_handling import *
+from src.image_encoding import *
+from src.encoding import *
 
 
 class TestDecoding(unittest.TestCase):
