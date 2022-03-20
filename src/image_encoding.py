@@ -40,8 +40,9 @@ def decode_image(image, image_type='RGB'):
             colors = [image[pixel[0], pixel[1], :] for pixel in pixels]
             spaxel = Spaxel(pixels, colors, image_type=image_type)
             decoded_text += spaxel.decode()
-    content_indices = read_header(decoded_text)
-    return decoded_text[content_indices]
+    start_of_content, end_of_content = read_header(decoded_text)
+    print(start_of_content, end_of_content)
+    return decoded_text[start_of_content:end_of_content]
 
 
 def add_header(text):

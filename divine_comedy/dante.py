@@ -20,8 +20,8 @@ def decrypt_divine_comedy():
     decoded_text = decode_image(loaded_image, image_type=image_type)
     write_file('divine_comedy/divinacommedia-decrypted.txt', decoded_text)
     print(decoded_text[50:110])
-    print(decoded_text[-30:-1])
+    print(decoded_text[-42:-1])
 
 
-# encrypt_divine_comedy()
+#encrypt_divine_comedy()
 decrypt_divine_comedy()
