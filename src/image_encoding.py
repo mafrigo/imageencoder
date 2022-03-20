@@ -4,6 +4,7 @@ import numpy as np
 
 def encode_image(image, text, chars_per_pixel=3, image_type='RGB'):
     encoded_image = np.copy(image)
+    text = add_header(text)
     max_text_length = int(chars_per_pixel * (image.shape[0] / 2) * (image.shape[1] / 2))
     if len(text) > max_text_length:
         print('Warning: the provided text is too long to fit in this image! It will get cropped at %i text length' % (
@@ -39,4 +40,19 @@ def decode_image(image, image_type='RGB'):
             colors = [image[pixel[0], pixel[1], :] for pixel in pixels]
             spaxel = Spaxel(pixels, colors, image_type=image_type)
             decoded_text += spaxel.decode()
-    return decoded_text
+    content_indices = read_header(decoded_text)
+    return decoded_text[content_indices]
+
+
+def add_header(text):
+    header = "<%i>" %(len(text))
+    return header + text
+
+def read_header(text):
+    for i in range(1, len(text)):
+        if text[i]==">":
+            break
+    text_len = int(text[1:i])
+    return i+1, text_len+i+1 
+        
+
