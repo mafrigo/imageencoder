@@ -41,7 +41,6 @@ def decode_image(image, image_type='RGB'):
             spaxel = Spaxel(pixels, colors, image_type=image_type)
             decoded_text += spaxel.decode()
     start_of_content, end_of_content = read_header(decoded_text)
-    print(start_of_content, end_of_content)
     return decoded_text[start_of_content:end_of_content]
 
 

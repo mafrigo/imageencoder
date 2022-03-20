@@ -19,7 +19,7 @@ def decrypt_divine_comedy():
     loaded_image, image_type = load_image('divine_comedy/dante-encrypted.png')
     decoded_text = decode_image(loaded_image, image_type=image_type)
     write_file('divine_comedy/divinacommedia-decrypted.txt', decoded_text)
-    print(decoded_text[50:110])
+    print(decoded_text[70:110])
     print(decoded_text[-42:-1])
 
 
