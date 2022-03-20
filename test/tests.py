@@ -6,7 +6,7 @@ from src.encoding import *
 
 class TestDecoding(unittest.TestCase):
     def test_decode_image(self):
-        test_image, image_type = load_image('sample_figures/encoded_github.png')
+        test_image, image_type = load_image('test/sample_figures/encoded_github.png')
         decoded_text = decode_image(test_image, image_type=image_type)
         self.assertEqual(decoded_text[0:9], 'Nel mezzo')
 
